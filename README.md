@@ -12,31 +12,7 @@ This project is a **Spring Boot microservice** designed to handle and evaluate l
 
 ## Architecture & Workflow
 
-```mermaid
-graph LR
-  subgraph API Endpoints
-    A[Bet Publisher API]
-    B[Reward Evaluator API]
-  end
-  
-  subgraph Message Broker
-    C[Kafka: jackpot-bets]
-  end
-  
-  subgraph Event Processing
-    D[Bet Consumer Service]
-    E[Reward Evaluator]
-  end
-  
-  F[(H2 Database)]
-  
-  A -- 1. Publish Bet --> C
-  C -- 2. Process Bet --> D
-  D -- 3. Update Pool & Record Contribution --> F
-  D -- 4. Evaluate Win --> E
-  E -- 5. Save Reward & Reset Pool --> F
-  B -- 6. Query Win Status --> F
-```
+<img width="1036" height="271" alt="Untitled Diagram" src="https://github.com/user-attachments/assets/14c1f9e5-5d56-4ab8-bd5f-6a9bafe456d4" />
 
 ### Bet Publisher Flow
 **Data Fields**: Bet ID, User ID, Jackpot ID, Stake Amount
