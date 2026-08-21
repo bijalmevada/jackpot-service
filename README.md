@@ -166,7 +166,7 @@ This project is a **Spring Boot microservice** designed to handle and evaluate l
 
 ### 1. Requirements
 
-- Java 17 or higher runtime 
+- Java 17 runtime 
 - Docker engine (for running Kafka locally)
 - Maven build tool
 
@@ -201,8 +201,8 @@ docker exec -it broker /opt/kafka/bin/kafka-topics.sh --create \
 Compile and boot the Spring service via Maven:
 
 ```bash
-mvn clean install
-mvn spring-boot:run
+./mvnw clean install
+./mvnw spring-boot:run
 ```
 
 The application will bind to port `8080` by default.
@@ -214,7 +214,7 @@ The application will bind to port `8080` by default.
 Execute the JUnit suite to verify system integrity:
 
 ```bash
-mvn test
+./mvnw test
 ```
 
 ---
@@ -232,7 +232,7 @@ Asynchronously submits a bet to the internal event pipeline.
   "betId": "bet-123",
   "userId": "user-123",
   "jackpotId": "jackpot-xyz",
-  "stakeAmount": 50.00
+  "betAmount": 50.00
 }
 ```
 
@@ -261,7 +261,10 @@ Synchronously queries the ledger to check if a specific bet yielded a jackpot wi
 
 ```json
 {
-  "jackpotRewardAmount": 5000.00 
+  "betId": "bet-7",
+  "userId": "555",
+  "jackpotId": "jackpot-variable-11",
+  "jackpotRewardAmount": 0
 }
 ```
 

@@ -39,7 +39,7 @@ public class RewardController {
             JackpotRewardDto result = rewardEvaluationService.evaluateReward(request);
             log.info("Reward evaluation completed successfully for request: {}", request);
             return ResponseEntity.ok(result);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalStateException e) {
             log.warn("Validation error evaluating reward: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {

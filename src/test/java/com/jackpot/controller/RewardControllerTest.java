@@ -52,7 +52,7 @@ class RewardControllerTest {
     @Test
     void evaluateReward_IllegalArgumentException() {
         RewardEvaluationDto request = new RewardEvaluationDto();
-        when(rewardEvaluationService.evaluateReward(request)).thenThrow(new IllegalArgumentException("Invalid ID"));
+        when(rewardEvaluationService.evaluateReward(request)).thenThrow(new IllegalStateException("Invalid ID"));
         BindingResult mockBindingResult = mock(BindingResult.class);
         when(mockBindingResult.hasErrors()).thenReturn(false);
 
